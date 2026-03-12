@@ -78,8 +78,8 @@
     }
 
     .site {
-      width: min(calc(100% - 24px), var(--content));
-      margin: 16px auto 64px;
+      width: min(calc(100% - 28px), var(--content));
+      margin: 18px auto 72px;
       position: relative;
       z-index: 1;
     }
@@ -91,9 +91,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      padding: 12px 14px;
-      margin-bottom: 18px;
+      gap: 18px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: rgba(9, 11, 15, 0.72);
@@ -120,7 +120,7 @@
 
     .nav {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
       white-space: nowrap;
       scrollbar-width: none;
@@ -132,11 +132,11 @@
     }
 
     .nav a {
-      padding: 10px 13px;
+      padding: 9px 12px;
       border-radius: 999px;
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       transition: background-color 160ms ease, color 160ms ease;
     }
 
@@ -155,10 +155,15 @@
       backdrop-filter: blur(14px);
     }
 
+    .hero,
+    .section {
+      scroll-margin-top: 96px;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.22fr) minmax(240px, 0.58fr);
-      gap: 18px;
+      gap: 20px;
       align-items: stretch;
     }
 
@@ -168,7 +173,7 @@
     }
 
     .hero-copy {
-      padding: clamp(22px, 4vw, 34px);
+      padding: clamp(24px, 4vw, 36px);
       position: relative;
       overflow: hidden;
     }
@@ -209,9 +214,9 @@
     h1 {
       margin-top: 18px;
       font-family: "Sora", sans-serif;
-      font-size: clamp(2.8rem, 9vw, 5.8rem);
-      line-height: 0.94;
-      max-width: 10ch;
+      font-size: clamp(2.6rem, 8vw, 5.2rem);
+      line-height: 0.96;
+      max-width: 11ch;
     }
 
     .accent {
@@ -220,11 +225,11 @@
     }
 
     .intro {
-      max-width: 62ch;
+      max-width: 60ch;
       margin: 18px 0 0;
       color: var(--muted);
       line-height: 1.78;
-      font-size: 1rem;
+      font-size: clamp(0.98rem, 1.2vw, 1.05rem);
       position: relative;
       z-index: 1;
     }
@@ -281,8 +286,8 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 26px;
+      gap: 14px;
+      margin-top: 24px;
       position: relative;
       z-index: 1;
     }
@@ -294,15 +299,15 @@
     .project-card,
     .detail-card,
     .skill-card,
-    .signal-card,
-    .contact-card {
+    .signal-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
     }
 
     .stat {
-      padding: 16px;
+      min-height: 126px;
+      padding: 18px;
     }
 
     .stat strong {
@@ -321,14 +326,18 @@
     .meta {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
+      gap: 14px;
+      margin-top: 16px;
       position: relative;
       z-index: 1;
     }
 
     .info-card {
-      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 108px;
+      padding: 18px;
       min-width: 0;
     }
 
@@ -377,7 +386,7 @@
     }
 
     .subpanel {
-      padding: 18px;
+      padding: 20px;
     }
 
     .subpanel h3 {
@@ -398,39 +407,9 @@
       line-height: 1.72;
     }
 
-    .contact-note {
-      display: grid;
-      gap: 12px;
-    }
-
-    .contact-note .contact-line {
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .contact-note small {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.7rem;
-    }
-
-    .contact-note a,
-    .contact-note strong {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.96rem;
-      font-weight: 700;
-      word-break: break-word;
-    }
-
     .section {
-      margin-top: 18px;
-      padding: clamp(20px, 3vw, 28px);
+      margin-top: 20px;
+      padding: clamp(22px, 3vw, 30px);
     }
 
     .section-head {
@@ -439,7 +418,7 @@
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .section-head h2 {
@@ -449,21 +428,22 @@
 
     .section-head p {
       margin: 0;
-      max-width: 58ch;
+      max-width: 62ch;
       color: var(--muted);
       line-height: 1.72;
+      font-size: 0.98rem;
     }
 
     .timeline {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     .timeline-item {
       display: grid;
       grid-template-columns: 160px minmax(0, 1fr);
       gap: 18px;
-      padding: 20px;
+      padding: 22px;
     }
 
     .timeline-date {
@@ -483,8 +463,7 @@
     .timeline-item li,
     .project-copy p,
     .skill-card p,
-    .signal-card p,
-    .contact-card p {
+    .signal-card p {
       color: var(--muted);
       line-height: 1.72;
     }
@@ -571,7 +550,7 @@
     .skills-grid,
     .signals {
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     .detail-grid {
@@ -580,7 +559,7 @@
     }
 
     .detail-card {
-      padding: 18px;
+      padding: 20px;
     }
 
     .detail-card strong {
@@ -632,7 +611,7 @@
     }
 
     .skill-card {
-      padding: 18px;
+      padding: 20px;
     }
 
     .skill-card.hidden {
@@ -650,7 +629,7 @@
     }
 
     .signal-card {
-      padding: 18px;
+      padding: 20px;
     }
 
     .signal-card strong {
@@ -660,7 +639,7 @@
     }
 
     .github-card {
-      padding: 18px;
+      padding: 20px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
@@ -852,10 +831,13 @@
 
     @media (max-width: 1080px) {
       .hero,
-      .project-layout,
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+
       .skills-grid,
       .signals {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -876,7 +858,9 @@
       .timeline-item,
       .stats,
       .meta,
-      .detail-grid {
+      .detail-grid,
+      .skills-grid,
+      .signals {
         grid-template-columns: 1fr;
       }
 
@@ -908,7 +892,22 @@
       .hero-copy,
       .photo-card,
       .section {
-        padding: 18px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 13vw, 3.6rem);
+      }
+
+      .intro,
+      .section-head p,
+      .timeline-item p,
+      .timeline-item li,
+      .project-copy p,
+      .skill-card p,
+      .signal-card p,
+      .github-note {
+        line-height: 1.68;
       }
 
       .link-row {
@@ -960,8 +959,8 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#highlights">Highlights</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -974,7 +973,7 @@
             I am a final-year Artificial Intelligence and Machine Learning student at BMS Institute of Technology and
             Management, and I am currently interning with the IT team at Shriram Properties. I like working on things
             that are practical, easy to use, and grounded in real problems, whether that means reporting,
-            accessibility, or applied AI.
+            accessibility, or applied AI that people can actually use.
           </p>
 
           <div class="stats">
@@ -1022,9 +1021,9 @@
           <section class="subpanel panel reveal">
             <h3>What I am focused on right now</h3>
             <ul>
-              <li>Python and Streamlit dashboards for IT security and operations reporting</li>
-              <li>AI systems using NLP, speech, computer vision, and routing logic</li>
-              <li>Student leadership with hands-on delivery, not just theory</li>
+              <li>Python and Streamlit dashboards for IT security and operations teams</li>
+              <li>AI projects that combine NLP, speech, vision, and clear real-world use cases</li>
+              <li>Hands-on student leadership, collaboration, and reliable project delivery</li>
             </ul>
           </section>
 
@@ -1193,7 +1192,7 @@
         </div>
       </section>
 
-      <section class="section panel reveal">
+      <section id="github" class="section panel reveal">
         <div class="section-head">
           <div>
             <div class="eyebrow">GitHub</div>
@@ -1218,20 +1217,13 @@
         </article>
       </section>
 
-      <section class="section panel reveal">
+      <section id="contact" class="section panel reveal">
         <div class="section-head">
           <div>
             <div class="eyebrow">Contact</div>
             <h2>Open to opportunities</h2>
           </div>
-          <p>I am currently based in Bengaluru and open to internships, project work, and early-career roles in AI, software, and related tech work.</p>
-        </div>
-
-        <div class="contact-note">
-          <div class="contact-line">
-            <small>Best way to connect</small>
-            <strong>Email or LinkedIn</strong>
-          </div>
+          <p>If you are hiring for an internship, project role, or entry-level position in AI or software, email or LinkedIn is the easiest way to reach me.</p>
         </div>
 
         <div class="link-row" aria-label="Profile links">
