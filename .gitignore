@@ -1,0 +1,8 @@
+.vercel
+*.log
+*.err
+phone.png
+phone_tall.png
+tablet.png
+desktop.png
+desktop_tall.png

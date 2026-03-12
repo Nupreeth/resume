@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nupreeth Mandappa K V | AI/ML Portfolio</title>
+  <meta
+    name="description"
+    content="Mobile-friendly portfolio resume for Nupreeth Mandappa K V with direct PDF download, GitHub, LinkedIn, experience, and selected projects."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-2: #0b0d12;
+      --panel: rgba(12, 14, 18, 0.88);
+      --panel-2: rgba(19, 22, 28, 0.94);
+      --text: #f5f7fb;
+      --muted: #99a3b6;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --cyan: #8ff7ff;
+      --blue: #8290ff;
+      --green: #b7ff83;
+      --rose: #ff9ec7;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --content: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(130, 144, 255, 0.24), transparent 24%),
+        radial-gradient(circle at top right, rgba(255, 158, 199, 0.12), transparent 20%),
+        radial-gradient(circle at 50% 120%, rgba(143, 247, 255, 0.12), transparent 28%),
+        linear-gradient(180deg, #040506 0%, #090b10 40%, #040506 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 92%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site {
+      width: min(calc(100% - 24px), var(--content));
+      margin: 16px auto 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(9, 11, 15, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Sora", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+
+    .brand span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.98rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav a {
+      padding: 10px 13px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      transition: background-color 160ms ease, color 160ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      outline: none;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(240px, 0.58fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-side {
+      min-width: 0;
+    }
+
+    .hero-copy {
+      padding: clamp(22px, 4vw, 34px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -72px;
+      top: -72px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(130, 144, 255, 0.18), transparent 68%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.8rem, 9vw, 5.8rem);
+      line-height: 0.94;
+      max-width: 10ch;
+    }
+
+    .accent {
+      display: block;
+      color: var(--cyan);
+    }
+
+    .intro {
+      max-width: 62ch;
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow-x: visible;
+      scrollbar-width: none;
+      margin-top: 16px;
+      padding-bottom: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .link-chip {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .link-chip:hover,
+    .link-chip:focus-visible {
+      outline: none;
+      transform: translateY(-1px);
+      border-color: rgba(143, 247, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .link-chip svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat,
+    .info-card,
+    .subpanel,
+    .timeline-item,
+    .project-card,
+    .detail-card,
+    .skill-card,
+    .signal-card,
+    .contact-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+    }
+
+    .stat {
+      padding: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1.45rem;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-card {
+      padding: 16px;
+      min-width: 0;
+    }
+
+    .info-card small {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .info-card strong,
+    .info-card a {
+      text-decoration: none;
+      font-size: 0.98rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .photo-card {
+      padding: 14px;
+    }
+
+    .photo-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      aspect-ratio: 4 / 4.65;
+      background:
+        radial-gradient(circle at top, rgba(143, 247, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, #161920 0%, #0b0d12 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .subpanel {
+      padding: 18px;
+    }
+
+    .subpanel h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .subpanel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .subpanel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .contact-note {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-note .contact-line {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-note small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+    }
+
+    .contact-note a,
+    .contact-note strong {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: clamp(20px, 3vw, 28px);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.7rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .timeline-date {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.24rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p,
+    .timeline-item li,
+    .project-copy p,
+    .skill-card p,
+    .signal-card p,
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .timeline-item ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .project-tabs {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .project-tab {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      color: var(--text);
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .project-tab strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .project-tab span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .project-tab.active,
+    .project-tab:hover,
+    .project-tab:focus-visible {
+      outline: none;
+      border-color: rgba(143, 247, 255, 0.24);
+      background: linear-gradient(135deg, rgba(143, 247, 255, 0.11), rgba(130, 144, 255, 0.08));
+      transform: translateX(4px);
+    }
+
+    .project-card {
+      padding: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(130, 144, 255, 0.16), transparent 24%),
+        linear-gradient(180deg, rgba(16, 18, 24, 0.96), rgba(10, 11, 15, 0.96));
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--cyan);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .project-copy h3 {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      margin-bottom: 10px;
+    }
+
+    .detail-grid,
+    .skills-grid,
+    .signals,
+    .github-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-grid {
+      margin-top: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-card {
+      padding: 18px;
+    }
+
+    .detail-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .detail-card span {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover,
+    .filter-btn:focus-visible {
+      outline: none;
+      color: #050608;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      border-color: transparent;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill-card {
+      padding: 18px;
+    }
+
+    .skill-card.hidden {
+      display: none;
+    }
+
+    .skill-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .signals {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .signal-card {
+      padding: 18px;
+    }
+
+    .signal-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .github-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: start;
+    }
+
+    .github-card,
+    .github-side {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+    }
+
+    .github-side h3,
+    .github-card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .github-side p,
+    .github-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .github-summary {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .github-summary strong {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-family: "Sora", sans-serif;
+      color: var(--text);
+    }
+
+    .github-summary span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .github-calendar-wrap {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 12px;
+      scrollbar-width: thin;
+    }
+
+    .github-calendar-wrap table {
+      border-collapse: separate;
+      border-spacing: 4px;
+      min-width: 700px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .github-calendar-wrap td,
+    .github-calendar-wrap th {
+      padding: 0;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .github-calendar-wrap .ContributionCalendar-day {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      shape-rendering: geometricPrecision;
+    }
+
+    .github-meta {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .github-meta .contact-line {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 480ms ease, transform 480ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .project-layout,
+      .skills-grid,
+      .signals,
+      .github-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .site {
+        width: min(calc(100% - 18px), var(--content));
+      }
+
+      .topbar {
+        border-radius: 24px;
+        padding: 12px;
+      }
+
+      .hero {
+        gap: 16px;
+      }
+
+      .timeline-item,
+      .stats,
+      .meta,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site {
+        margin-top: 10px;
+      }
+
+      .topbar {
+        position: static;
+        display: grid;
+        gap: 10px;
+        border-radius: 20px;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-copy,
+      .photo-card,
+      .section {
+        padding: 18px;
+      }
+
+      .link-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+
+      .photo-frame {
+        aspect-ratio: 5 / 6;
+      }
+
+      .project-tabs {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .project-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .project-tab {
+        min-width: 250px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button,
+      .project-tab,
+      .filter-btn,
+      .reveal {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar reveal">
+      <div class="brand">
+        <span>Nupreeth Mandappa K V</span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#highlights">Highlights</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="hero">
+        <article class="hero-copy panel reveal">
+          <div class="eyebrow">AI/ML student and IT intern</div>
+          <h1>I work on <span class="accent">useful AI and software projects.</span></h1>
+          <p class="intro">
+            I am a final-year Artificial Intelligence and Machine Learning student at BMS Institute of Technology and
+            Management, and I am currently interning with the IT team at Shriram Properties. I like working on things
+            that are practical, easy to use, and grounded in real problems, whether that means reporting,
+            accessibility, or applied AI.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>8.15</strong>
+              <span>CGPA as of 7th semester in AIML</span>
+            </div>
+            <div class="stat">
+              <strong>2026</strong>
+              <span>Expected graduation with active internship experience</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Focus areas: accessibility, applied AI, and reporting systems</span>
+            </div>
+          </div>
+
+          <div class="meta">
+            <div class="info-card">
+              <small>Current role</small>
+              <strong>IT Intern at Shriram Properties</strong>
+            </div>
+            <div class="info-card">
+              <small>Education</small>
+              <strong>BMS Institute of Technology and Management</strong>
+            </div>
+            <div class="info-card">
+              <small>Location</small>
+              <strong>Bengaluru, Karnataka</strong>
+            </div>
+            <div class="info-card">
+              <small>Interests</small>
+              <strong>AI, accessibility, and practical software projects</strong>
+            </div>
+          </div>
+        </article>
+
+        <aside class="hero-side">
+          <section class="photo-card panel reveal">
+            <div class="photo-frame">
+              <img src="./Nupreeth_Updated_PassportSize.jpg" alt="Portrait of Nupreeth Mandappa K V">
+            </div>
+          </section>
+
+          <section class="subpanel panel reveal">
+            <h3>What I am focused on right now</h3>
+            <ul>
+              <li>Python and Streamlit dashboards for IT security and operations reporting</li>
+              <li>AI systems using NLP, speech, computer vision, and routing logic</li>
+              <li>Student leadership with hands-on delivery, not just theory</li>
+            </ul>
+          </section>
+
+        </aside>
+      </section>
+      <section id="experience" class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Experience</div>
+            <h2>Built for real teams</h2>
+          </div>
+          <p>My internship work has been about making everyday reporting and operations smoother, more reliable, and easier for teams to work with.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Jan 2026 - Present</div>
+            <div>
+              <h3>IT Intern</h3>
+              <p>Shriram Properties Limited</p>
+              <ul>
+                <li>Built multiple IT dashboards in Python and Streamlit for security and operations reporting, covering email activity, threats, and KPIs.</li>
+                <li>Automated reporting pipelines using Excel and APIs, including validation, aggregation, and risk-scoring logic.</li>
+                <li>Worked with SAP and UiPath for operational reporting, automation support, and process standardization.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Projects</div>
+            <h2>Selected work</h2>
+          </div>
+          <p>These are the projects I usually highlight because they show how I think about accessibility, systems, and practical problem-solving.</p>
+        </div>
+
+        <div class="project-layout">
+          <div class="project-tabs" role="tablist" aria-label="Selected projects">
+            <button class="project-tab active" type="button" data-project="sanket" aria-selected="true">
+              <strong>Sanket</strong>
+              <span>Bidirectional speech, text, and Indian Sign Language translation</span>
+            </button>
+            <button class="project-tab" type="button" data-project="ambulance" aria-selected="false">
+              <strong>Ambulance Distribution System</strong>
+              <span>Dispatch optimization with routing and geospatial support</span>
+            </button>
+            <button class="project-tab" type="button" data-project="anvaya" aria-selected="false">
+              <strong>Anvaya</strong>
+              <span>Accessibility assistant using voice interaction and scene understanding</span>
+            </button>
+          </div>
+
+          <article class="project-card">
+            <div class="project-tag" id="project-tag">Accessibility AI</div>
+            <div class="project-copy">
+              <h3 id="project-title">Sanket</h3>
+              <p id="project-summary">
+                Built a bidirectional translator between speech or text and Indian Sign Language using ASR, NLP, gesture recognition, and speech modules.
+              </p>
+            </div>
+            <div class="detail-grid" id="project-details">
+              <div class="detail-card">
+                <strong>What it does</strong>
+                <span>Supports language to ISL and ISL back to language flow for accessibility-focused interaction.</span>
+              </div>
+              <div class="detail-card">
+                <strong>How it works</strong>
+                <span>Uses CNN and BiLSTM based gesture recognition with Speech-to-Text and Text-to-Speech integration.</span>
+              </div>
+              <div class="detail-card">
+                <strong>Why it matters</strong>
+                <span>Built around inclusive use cases like education and public-service interaction.</span>
+              </div>
+              <div class="detail-card">
+                <strong>Skills used</strong>
+                <span>Python, TensorFlow, NLP, deep learning, media processing.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Skills</div>
+            <h2>Quick scan, then deeper read</h2>
+          </div>
+          <p>This section is grouped to make it easier to scan quickly without losing the actual depth behind the resume.</p>
+        </div>
+
+        <div class="filters" aria-label="Skill filters">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="programming">Programming</button>
+          <button class="filter-btn" type="button" data-filter="aiml">AI/ML</button>
+          <button class="filter-btn" type="button" data-filter="core">Core CS</button>
+          <button class="filter-btn" type="button" data-filter="engineering">Engineering</button>
+          <button class="filter-btn" type="button" data-filter="tools">Tools</button>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card" data-category="programming">
+            <strong>Programming</strong>
+            <p>Python, C, C++, JavaScript, SQL, HTML, CSS, PHP</p>
+          </article>
+          <article class="skill-card" data-category="core">
+            <strong>Core CS</strong>
+            <p>Problem solving, OOP, DBMS, operating systems, computer networks, DSA</p>
+          </article>
+          <article class="skill-card" data-category="aiml">
+            <strong>AI/ML</strong>
+            <p>TensorFlow, PyTorch, deep learning, NLP, Scikit-learn, NumPy, Pandas</p>
+          </article>
+          <article class="skill-card" data-category="engineering">
+            <strong>Engineering</strong>
+            <p>Data validation, automation, parsing and ETL, Agile, testing, documentation, SDLC</p>
+          </article>
+          <article class="skill-card" data-category="tools">
+            <strong>Databases and tools</strong>
+            <p>MySQL, MongoDB, Streamlit, Git, REST APIs, Linux basics</p>
+          </article>
+          <article class="skill-card" data-category="engineering">
+            <strong>Professional strengths</strong>
+            <p>Teamwork, communication, leadership, analytical thinking, adaptability</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="highlights" class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Signals</div>
+            <h2>Why this profile is strong</h2>
+          </div>
+          <p>Beyond coursework and projects, these are the parts of my profile that show consistency, initiative, and follow-through.</p>
+        </div>
+
+        <div class="signals">
+          <article class="signal-card">
+            <strong>Hackathons</strong>
+            <p>Finalist at Code Red 25 and 2nd Place at NeuroNova Hackathon.</p>
+          </article>
+          <article class="signal-card">
+            <strong>Leadership</strong>
+            <p>Secretary of IEEE Student Branch BMSIT&amp;M from January 2025 to December 2025.</p>
+          </article>
+          <article class="signal-card">
+            <strong>Community</strong>
+            <p>Board of Directors at Rotaract Club from 2024 to present and National Cadet Corps from January 2023 to March 2025.</p>
+          </article>
+          <article class="signal-card">
+            <strong>Certifications</strong>
+            <p>Machine Learning using MATLAB, Software Development and Testing, Business Analytics.</p>
+          </article>
+          <article class="signal-card">
+            <strong>More learning</strong>
+            <p>Natural Language Processing using Python, Text Mining and Social Network Analysis, Big Data 201.</p>
+          </article>
+          <article class="signal-card">
+            <strong>Languages</strong>
+            <p>English, Hindi, Kannada.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">GitHub</div>
+            <h2>Consistent public work</h2>
+          </div>
+          <p>This section updates from public GitHub activity, so the contribution graph reflects the current state of the profile instead of a hardcoded screenshot.</p>
+        </div>
+
+        <div class="github-grid">
+          <article class="github-card">
+            <div class="github-summary">
+              <strong id="github-count">Loading...</strong>
+              <span id="github-year">GitHub contributions</span>
+            </div>
+            <div class="github-calendar-wrap" id="github-calendar" aria-live="polite">
+              <p>Loading contribution graph...</p>
+            </div>
+          </article>
+
+          <aside class="github-side">
+            <h3>Why it is here</h3>
+            <p>Projects and internships show what I have worked on. GitHub activity adds another signal around consistency, experimentation, and continued learning in public.</p>
+            <div class="github-meta">
+              <div class="contact-line">
+                <small>Profile</small>
+                <a href="https://github.com/Nupreeth" target="_blank" rel="noopener noreferrer">github.com/Nupreeth</a>
+              </div>
+              <div class="contact-line">
+                <small>Privacy note</small>
+                <strong>Only public contribution data is used. No personal token is exposed in the browser.</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section panel reveal">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Open to opportunities</h2>
+          </div>
+          <p>I am currently based in Bengaluru and open to internships, project work, and early-career roles in AI, software, and related tech work.</p>
+        </div>
+
+        <div class="contact-note">
+          <div class="contact-line">
+            <small>Best way to connect</small>
+            <strong>Email or LinkedIn</strong>
+          </div>
+        </div>
+
+        <div class="link-row" aria-label="Profile links">
+          <a class="link-chip" href="mailto:nupreethm@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16v12H4z"></path>
+              <path d="m4 7 8 6 8-6"></path>
+            </svg>
+            <span>Email</span>
+          </a>
+          <a class="link-chip" href="https://www.linkedin.com/in/nupreeth-mandappa-k-v-252876253/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.4a1.56 1.56 0 0 1 0 3.1ZM5.6 9.8h2.7V18H5.6V9.8Zm4.4 0h2.58v1.13h.04c.36-.68 1.24-1.4 2.56-1.4 2.74 0 3.24 1.8 3.24 4.14V18H15.7v-3.86c0-.92-.02-2.1-1.28-2.1-1.28 0-1.48 1-1.48 2.03V18H10V9.8Z"></path>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="link-chip" href="https://github.com/Nupreeth" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M12 .6a12 12 0 0 0-3.79 23.39c.6.1.82-.26.82-.58v-2.1c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.72.08-.72 1.2.08 1.84 1.24 1.84 1.24 1.08 1.83 2.82 1.3 3.5.99.1-.79.42-1.3.77-1.6-2.67-.3-5.47-1.33-5.47-5.95 0-1.31.46-2.37 1.23-3.21-.13-.3-.53-1.52.12-3.16 0 0 1-.32 3.3 1.22a11.3 11.3 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.64.25 2.86.12 3.16.77.84 1.23 1.9 1.23 3.21 0 4.63-2.8 5.64-5.48 5.94.43.37.82 1.08.82 2.18v3.23c0 .32.22.69.83.58A12 12 0 0 0 12 .6Z"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a class="link-chip" href="./Nupreeth_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume PDF">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <path d="M14 2v6h6"></path>
+              <path d="M8 13h8"></path>
+              <path d="M8 17h6"></path>
+            </svg>
+            <span>Resume</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    const projectData = {
+      sanket: {
+        tag: "Accessibility AI",
+        title: "Sanket",
+        summary:
+          "Built a bidirectional translator between speech or text and Indian Sign Language using ASR, NLP, gesture recognition, and speech modules.",
+        details: [
+          ["What it does", "Supports language to ISL and ISL back to language flow for accessibility-focused interaction."],
+          ["How it works", "Uses CNN and BiLSTM based gesture recognition with Speech-to-Text and Text-to-Speech integration."],
+          ["Why it matters", "Built around inclusive use cases like education and public-service interaction."],
+          ["Skills used", "Python, TensorFlow, NLP, deep learning, media processing."]
+        ]
+      },
+      ambulance: {
+        tag: "Optimization and analytics",
+        title: "Ambulance Distribution System",
+        summary:
+          "Built an ambulance dispatch optimization system for Bengaluru using geospatial analytics, nearest-unit detection, and route-aware support.",
+        details: [
+          ["What it does", "Helps reduce emergency response delays through nearest ambulance detection and dispatch support."],
+          ["How it works", "Combines KNN-based detection with Dijkstra shortest-path routing and mapping or traffic APIs for ETA support."],
+          ["Why it matters", "Connects algorithms to an operational problem with real-time decision support potential."],
+          ["Skills used", "Python, machine learning, algorithms, APIs, Streamlit."]
+        ]
+      },
+      anvaya: {
+        tag: "Computer vision and voice UX",
+        title: "Anvaya",
+        summary:
+          "Designed an accessibility-focused smart glasses assistant for visually impaired users with voice interaction, navigation help, and scene understanding.",
+        details: [
+          ["What it does", "Offers speech recognition, live transcription, TTS feedback, and camera-based object or environment description."],
+          ["How it works", "Implements a voice-first workflow with camera capture and responsive audio feedback."],
+          ["Why it matters", "Focuses on practical accessibility rather than a purely demo-style prototype."],
+          ["Skills used", "Python, computer vision, speech systems, TTS, UI workflow design."]
+        ]
+      }
+    };
+
+    const projectTabs = document.querySelectorAll(".project-tab");
+    const projectTag = document.getElementById("project-tag");
+    const projectTitle = document.getElementById("project-title");
+    const projectSummary = document.getElementById("project-summary");
+    const projectDetails = document.getElementById("project-details");
+
+    function renderProject(key) {
+      const project = projectData[key];
+      if (!project) {
+        return;
+      }
+
+      projectTag.textContent = project.tag;
+      projectTitle.textContent = project.title;
+      projectSummary.textContent = project.summary;
+      projectDetails.innerHTML = project.details
+        .map(
+          ([label, value]) => `
+            <div class="detail-card">
+              <strong>${label}</strong>
+              <span>${value}</span>
+            </div>
+          `
+        )
+        .join("");
+
+      projectTabs.forEach((tab) => {
+        const active = tab.dataset.project === key;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+      });
+    }
+
+    projectTabs.forEach((tab) => {
+      tab.addEventListener("click", () => renderProject(tab.dataset.project));
+    });
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const skillCards = document.querySelectorAll(".skill-card");
+    const githubCount = document.getElementById("github-count");
+    const githubYear = document.getElementById("github-year");
+    const githubCalendar = document.getElementById("github-calendar");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((entry) => entry.classList.remove("active"));
+        button.classList.add("active");
+
+        skillCards.forEach((card) => {
+          const visible = filter === "all" || card.dataset.category === filter;
+          card.classList.toggle("hidden", !visible);
+        });
+      });
+    });
+
+    async function loadGithubContributions() {
+      try {
+        const response = await fetch("/api/github-contributions?year=2026");
+        if (!response.ok) {
+          throw new Error("Failed to load contributions.");
+        }
+
+        const data = await response.json();
+        githubCount.textContent = data.count;
+        githubYear.textContent = `public GitHub contributions in ${data.year}`;
+        githubCalendar.innerHTML = data.calendarHtml;
+      } catch (error) {
+        githubCount.textContent = "GitHub";
+        githubYear.textContent = "Contribution graph unavailable right now";
+        githubCalendar.innerHTML = "<p>Unable to load the contribution graph at the moment.</p>";
+      }
+    }
+
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    loadGithubContributions();
+    reveals.forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
