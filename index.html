@@ -569,8 +569,7 @@
 
     .detail-grid,
     .skills-grid,
-    .signals,
-    .github-grid {
+    .signals {
       display: grid;
       gap: 14px;
     }
@@ -660,26 +659,18 @@
       font-size: 1rem;
     }
 
-    .github-grid {
-      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-      align-items: start;
-    }
-
-    .github-card,
-    .github-side {
+    .github-card {
       padding: 18px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-md);
     }
 
-    .github-side h3,
     .github-card h3 {
       font-size: 1.12rem;
       margin-bottom: 10px;
     }
 
-    .github-side p,
     .github-card p {
       margin: 0;
       color: var(--muted);
@@ -710,18 +701,18 @@
       overflow-x: auto;
       overflow-y: hidden;
       border-radius: 14px;
-      background: rgba(0, 0, 0, 0.16);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 12px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      padding: 14px 12px 10px;
       scrollbar-width: thin;
     }
 
     .github-calendar-wrap table {
       border-collapse: separate;
-      border-spacing: 4px;
-      min-width: 700px;
-      color: var(--muted);
-      font-size: 12px;
+      border-spacing: 3px;
+      min-width: 720px;
+      color: #7d8590;
+      font-size: 11px;
       table-layout: fixed;
     }
 
@@ -752,20 +743,20 @@
       min-width: 52px;
       padding-right: 8px;
       text-align: right;
-      color: var(--muted);
+      color: #7d8590;
       white-space: normal;
     }
 
     .github-calendar-wrap td[role="gridcell"],
     .github-calendar-wrap .ContributionCalendar-day {
-      width: 12px;
-      min-width: 12px;
-      height: 12px;
-      min-height: 12px;
-      border-radius: 4px;
+      width: 11px;
+      min-width: 11px;
+      height: 11px;
+      min-height: 11px;
+      border-radius: 2px;
       shape-rendering: geometricPrecision;
       background: #161b22;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.06);
     }
 
     .github-calendar-wrap td[data-level="1"] {
@@ -784,14 +775,15 @@
       background: #39d353;
     }
 
-    .github-meta {
-      display: grid;
-      gap: 12px;
+    .github-note {
       margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    .github-meta .contact-line {
-      background: rgba(255, 255, 255, 0.03);
+    .github-note a {
+      color: var(--cyan);
+      text-decoration: none;
     }
 
     .reveal {
@@ -809,8 +801,7 @@
       .hero,
       .project-layout,
       .skills-grid,
-      .signals,
-      .github-grid {
+      .signals {
         grid-template-columns: 1fr;
       }
     }
@@ -1155,35 +1146,23 @@
             <div class="eyebrow">GitHub</div>
             <h2>Consistent public work</h2>
           </div>
-          <p>This section updates from public GitHub activity, so the contribution graph reflects the current state of the profile instead of a hardcoded screenshot.</p>
+          <p>This contribution graph updates from public GitHub activity, so it stays current without turning into a static screenshot.</p>
         </div>
 
-        <div class="github-grid">
-          <article class="github-card">
-            <div class="github-summary">
-              <strong id="github-count">Loading...</strong>
-              <span id="github-year">GitHub contributions</span>
-            </div>
-            <div class="github-calendar-wrap" id="github-calendar" aria-live="polite">
-              <p>Loading contribution graph...</p>
-            </div>
-          </article>
-
-          <aside class="github-side">
-            <h3>Why it is here</h3>
-            <p>Projects and internships show what I have worked on. GitHub activity adds another signal around consistency, experimentation, and continued learning in public.</p>
-            <div class="github-meta">
-              <div class="contact-line">
-                <small>Profile</small>
-                <a href="https://github.com/Nupreeth" target="_blank" rel="noopener noreferrer">github.com/Nupreeth</a>
-              </div>
-              <div class="contact-line">
-                <small>Privacy note</small>
-                <strong>Only public contribution data is used. No personal token is exposed in the browser.</strong>
-              </div>
-            </div>
-          </aside>
-        </div>
+        <article class="github-card">
+          <div class="github-summary">
+            <strong id="github-count">Loading...</strong>
+            <span id="github-year">GitHub contributions</span>
+          </div>
+          <div class="github-calendar-wrap" id="github-calendar" aria-live="polite">
+            <p>Loading contribution graph...</p>
+          </div>
+          <p class="github-note">
+            Source:
+            <a href="https://github.com/Nupreeth" target="_blank" rel="noopener noreferrer">github.com/Nupreeth</a>
+            . Only public contribution data is used.
+          </p>
+        </article>
       </section>
 
       <section class="section panel reveal">
