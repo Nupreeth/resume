@@ -560,6 +560,7 @@
 
     .detail-card {
       padding: 20px;
+      min-height: 132px;
     }
 
     .detail-card strong {
@@ -612,6 +613,7 @@
 
     .skill-card {
       padding: 20px;
+      min-height: 140px;
     }
 
     .skill-card.hidden {
@@ -630,6 +632,7 @@
 
     .signal-card {
       padding: 20px;
+      min-height: 136px;
     }
 
     .signal-card strong {
@@ -911,8 +914,9 @@
       }
 
       .link-row {
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .photo-frame {
@@ -940,7 +944,6 @@
         scroll-behavior: auto;
       }
 
-      .button,
       .project-tab,
       .filter-btn,
       .reveal {
@@ -959,6 +962,7 @@
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#github">GitHub</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1019,7 +1023,7 @@
           </section>
 
           <section class="subpanel panel reveal">
-            <h3>What I am focused on right now</h3>
+            <h3>Current focus</h3>
             <ul>
               <li>Python and Streamlit dashboards for IT security and operations teams</li>
               <li>AI projects that combine NLP, speech, vision, and clear real-world use cases</li>
@@ -1033,7 +1037,7 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Experience</div>
-            <h2>Built for real teams</h2>
+            <h2>Experience that translates to work</h2>
           </div>
           <p>My internship work has been about making everyday reporting and operations smoother, more reliable, and easier for teams to work with.</p>
         </div>
@@ -1060,7 +1064,7 @@
             <div class="eyebrow">Projects</div>
             <h2>Selected work</h2>
           </div>
-          <p>These are the projects I usually highlight because they show how I think about accessibility, systems, and practical problem-solving.</p>
+          <p>These projects reflect the kind of work I enjoy most: useful systems, accessible experiences, and technical ideas applied to real problems.</p>
         </div>
 
         <div class="project-layout">
@@ -1113,9 +1117,9 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Skills</div>
-            <h2>Quick scan, then deeper read</h2>
+            <h2>Core skills</h2>
           </div>
-          <p>This section is grouped to make it easier to scan quickly without losing the actual depth behind the resume.</p>
+          <p>A grouped snapshot of the tools, concepts, and working style I bring into projects and internships.</p>
         </div>
 
         <div class="filters" aria-label="Skill filters">
@@ -1159,9 +1163,9 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Signals</div>
-            <h2>Why this profile is strong</h2>
+            <h2>Beyond academics</h2>
           </div>
-          <p>Beyond coursework and projects, these are the parts of my profile that show consistency, initiative, and follow-through.</p>
+          <p>These are the extra signals that show consistency, initiative, and how I work with people beyond coursework alone.</p>
         </div>
 
         <div class="signals">
@@ -1196,9 +1200,9 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">GitHub</div>
-            <h2>Consistent public work</h2>
+            <h2>GitHub activity</h2>
           </div>
-          <p>This contribution graph updates from public GitHub activity, so it stays current without turning into a static screenshot.</p>
+          <p>This graph updates from public GitHub activity, so it reflects current work instead of a static screenshot.</p>
         </div>
 
         <article class="github-card">
@@ -1221,7 +1225,7 @@
         <div class="section-head">
           <div>
             <div class="eyebrow">Contact</div>
-            <h2>Open to opportunities</h2>
+            <h2>Let's connect</h2>
           </div>
           <p>If you are hiring for an internship, project role, or entry-level position in AI or software, email or LinkedIn is the easiest way to reach me.</p>
         </div>
