@@ -732,6 +732,11 @@
       display: none;
     }
 
+    .github-calendar-wrap thead td:first-child span,
+    .github-calendar-wrap thead th:first-child span {
+      display: none;
+    }
+
     .github-calendar-wrap thead span[aria-hidden],
     .github-calendar-wrap tbody span[aria-hidden] {
       display: inline;
@@ -745,6 +750,13 @@
       text-align: right;
       color: #7d8590;
       white-space: normal;
+    }
+
+    .github-calendar-wrap tbody tr:nth-child(1) td:first-child,
+    .github-calendar-wrap tbody tr:nth-child(3) td:first-child,
+    .github-calendar-wrap tbody tr:nth-child(5) td:first-child,
+    .github-calendar-wrap tbody tr:nth-child(7) td:first-child {
+      opacity: 0;
     }
 
     .github-calendar-wrap td[role="gridcell"],
@@ -773,6 +785,47 @@
 
     .github-calendar-wrap td[data-level="4"] {
       background: #39d353;
+    }
+
+    .github-calendar-wrap td[role="gridcell"] {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .github-tooltip {
+      position: fixed;
+      z-index: 50;
+      max-width: 220px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: #161b22;
+      color: #f0f6fc;
+      border: 1px solid #30363d;
+      box-shadow: 0 8px 24px rgba(1, 4, 9, 0.45);
+      font-size: 12px;
+      line-height: 1.45;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 120ms ease, transform 120ms ease;
+    }
+
+    .github-tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .github-tooltip::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 10px;
+      height: 10px;
+      background: #161b22;
+      border-right: 1px solid #30363d;
+      border-bottom: 1px solid #30363d;
+      transform: translateX(-50%) rotate(45deg);
     }
 
     .github-note {
@@ -1300,6 +1353,56 @@
     const githubYear = document.getElementById("github-year");
     const githubCalendar = document.getElementById("github-calendar");
 
+    function enhanceGithubCalendar() {
+      const tooltip = document.createElement("div");
+      tooltip.className = "github-tooltip";
+      document.body.appendChild(tooltip);
+
+      const tooltips = githubCalendar.querySelectorAll("tool-tip[for]");
+      tooltips.forEach((tip) => {
+        const targetId = tip.getAttribute("for");
+        const target = githubCalendar.querySelector(`#${CSS.escape(targetId)}`);
+        if (target) {
+          const text = tip.textContent.trim();
+          target.dataset.tooltip = text;
+          target.setAttribute("aria-label", text);
+        }
+        tip.remove();
+      });
+
+      function hideTooltip() {
+        tooltip.classList.remove("visible");
+      }
+
+      function showTooltip(target) {
+        const text = target.dataset.tooltip;
+        if (!text) {
+          return;
+        }
+
+        tooltip.textContent = text;
+        tooltip.classList.add("visible");
+
+        const rect = target.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const left = Math.min(
+          Math.max(rect.left + rect.width / 2 - tooltipRect.width / 2, 12),
+          window.innerWidth - tooltipRect.width - 12
+        );
+        const top = Math.max(rect.top - tooltipRect.height - 14, 12);
+
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${top}px`;
+      }
+
+      githubCalendar.querySelectorAll('td[role="gridcell"]').forEach((cell) => {
+        cell.addEventListener("mouseenter", () => showTooltip(cell));
+        cell.addEventListener("focus", () => showTooltip(cell));
+        cell.addEventListener("mouseleave", hideTooltip);
+        cell.addEventListener("blur", hideTooltip);
+      });
+    }
+
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const filter = button.dataset.filter;
@@ -1325,6 +1428,7 @@
         githubCount.textContent = data.count;
         githubYear.textContent = `public GitHub contributions in ${data.year}`;
         githubCalendar.innerHTML = data.calendarHtml;
+        enhanceGithubCalendar();
       } catch (error) {
         githubCount.textContent = "GitHub";
         githubYear.textContent = "Contribution graph unavailable right now";

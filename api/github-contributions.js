@@ -6,7 +6,6 @@ const CALENDAR_REGEX =
 
 function cleanCalendarHtml(html) {
   return html
-    .replace(/<tool-tip[\s\S]*?<\/tool-tip>/gi, "")
     .replace(/\s(data-hydro-click|data-hydro-click-hmac|data-view-component|class)="[^"]*"/gi, "")
     .replace(/\sstyle="[^"]*"/gi, "")
     .trim();
