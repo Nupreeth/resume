@@ -41,7 +41,7 @@ export default async function handler(request, response) {
       return;
     }
 
-    response.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
+    response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=1800");
     response.status(200).json({
       year: countMatch[2],
       count: countMatch[1],
