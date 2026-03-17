@@ -662,7 +662,7 @@
     .github-summary {
       display: flex;
       align-items: baseline;
-      gap: 10px;
+      gap: 10px 12px;
       margin-bottom: 14px;
       flex-wrap: wrap;
     }
@@ -676,6 +676,27 @@
     .github-summary span {
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    .github-refresh {
+      margin-left: auto;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .github-refresh:hover,
+    .github-refresh:focus-visible {
+      outline: none;
+      transform: translateY(-1px);
+      border-color: rgba(143, 247, 255, 0.26);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .github-calendar-wrap {
@@ -917,6 +938,11 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+      }
+
+      .github-refresh {
+        width: 100%;
+        margin-left: 0;
       }
 
       .photo-frame {
@@ -1209,6 +1235,7 @@
           <div class="github-summary">
             <strong id="github-count">Loading...</strong>
             <span id="github-year">GitHub contributions</span>
+            <button class="github-refresh" id="github-refresh" type="button">Refresh</button>
           </div>
           <div class="github-calendar-wrap" id="github-calendar" aria-live="polite">
             <p>Loading contribution graph...</p>
@@ -1216,7 +1243,7 @@
           <p class="github-note">
             Source:
             <a href="https://github.com/Nupreeth" target="_blank" rel="noopener noreferrer">github.com/Nupreeth</a>
-            . Public contributions only. If your GitHub profile shows a higher total, it likely includes private contributions or very recent updates.
+            . Public contributions only. If your GitHub profile shows a higher total, it likely includes private contributions or very recent updates. Use Refresh to re-check.
           </p>
         </article>
       </section>
@@ -1348,6 +1375,7 @@
     const githubCount = document.getElementById("github-count");
     const githubYear = document.getElementById("github-year");
     const githubCalendar = document.getElementById("github-calendar");
+    const githubRefresh = document.getElementById("github-refresh");
 
     function enhanceGithubCalendar() {
       const tooltip = document.createElement("div");
@@ -1413,9 +1441,10 @@
       });
     });
 
-    async function loadGithubContributions() {
+    async function loadGithubContributions(force = false) {
       try {
-        const response = await fetch("/api/github-contributions?year=2026");
+        const cacheKey = force ? `&ts=${Date.now()}` : "";
+        const response = await fetch(`/api/github-contributions?year=2026${cacheKey}`);
         if (!response.ok) {
           throw new Error("Failed to load contributions.");
         }
@@ -1444,6 +1473,10 @@
       },
       { threshold: 0.12 }
     );
+
+    if (githubRefresh) {
+      githubRefresh.addEventListener("click", () => loadGithubContributions(true));
+    }
 
     loadGithubContributions();
     reveals.forEach((element) => observer.observe(element));

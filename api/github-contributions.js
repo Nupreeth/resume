@@ -18,8 +18,45 @@ export default async function handler(request, response) {
   const from = `${year}-01-01`;
   const to = `${year}-12-31`;
   const githubUrl = `https://github.com/users/Nupreeth/contributions?from=${from}&to=${to}`;
+  const token = process.env.GITHUB_TOKEN;
+  let tokenCount = null;
 
   try {
+    if (token) {
+      const graphqlResponse = await fetch("https://api.github.com/graphql", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "User-Agent": "nupreeth-resume-vercel",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `
+            query($login: String!, $from: DateTime!, $to: DateTime!) {
+              user(login: $login) {
+                contributionsCollection(from: $from, to: $to) {
+                  totalContributions
+                }
+              }
+            }
+          `,
+          variables: {
+            login: "Nupreeth",
+            from: `${from}T00:00:00Z`,
+            to: `${to}T23:59:59Z`,
+          },
+        }),
+      });
+
+      if (graphqlResponse.ok) {
+        const graphqlData = await graphqlResponse.json();
+        const total = graphqlData?.data?.user?.contributionsCollection?.totalContributions;
+        if (typeof total === "number") {
+          tokenCount = new Intl.NumberFormat("en-US").format(total);
+        }
+      }
+    }
+
     const githubResponse = await fetch(githubUrl, {
       headers: {
         "User-Agent": "nupreeth-resume-vercel",
@@ -44,7 +81,7 @@ export default async function handler(request, response) {
     response.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=1800");
     response.status(200).json({
       year: countMatch[2],
-      count: countMatch[1],
+      count: tokenCount || countMatch[1],
       calendarHtml: cleanCalendarHtml(calendarMatch[1]),
       source: githubUrl,
     });
