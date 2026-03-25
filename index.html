@@ -8,6 +8,7 @@
     name="description"
     content="Mobile-friendly portfolio resume for Nupreeth Mandappa K V with direct PDF download, GitHub, LinkedIn, experience, and selected projects."
   >
+  <meta name="theme-color" content="#050608">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -245,6 +246,97 @@
       padding-bottom: 2px;
       position: relative;
       z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .action-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .action-chip.primary {
+      background: linear-gradient(120deg, rgba(143, 247, 255, 0.24), rgba(130, 144, 255, 0.22));
+      border-color: rgba(143, 247, 255, 0.5);
+      box-shadow: 0 12px 30px rgba(130, 144, 255, 0.2);
+    }
+
+    .action-chip.ghost {
+      background: rgba(9, 11, 15, 0.5);
+    }
+
+    .action-chip:hover,
+    .action-chip:focus-visible {
+      outline: none;
+      transform: translateY(-1px);
+      border-color: rgba(143, 247, 255, 0.7);
+    }
+
+    .status-pill {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(183, 255, 131, 0.12);
+      border: 1px solid rgba(183, 255, 131, 0.3);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(183, 255, 131, 0.6);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      background: rgba(12, 14, 18, 0.95);
+      border: 1px solid var(--line-strong);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 160ms ease, transform 160ms ease;
+      z-index: 100;
+      font-size: 0.9rem;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .link-row::-webkit-scrollbar {
@@ -940,6 +1032,11 @@
         gap: 10px;
       }
 
+      .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .github-refresh {
         width: 100%;
         margin-left: 0;
@@ -972,7 +1069,8 @@
 
       .project-tab,
       .filter-btn,
-      .reveal {
+      .reveal,
+      .toast {
         transition: none;
       }
     }
@@ -1005,6 +1103,13 @@
             that are practical, easy to use, and grounded in real problems, whether that means reporting,
             accessibility, or applied AI that people can actually use.
           </p>
+
+          <div class="hero-actions">
+            <a class="action-chip primary" href="mailto:nupreethm@gmail.com">Email me</a>
+            <a class="action-chip ghost" href="./Nupreeth_Resume.pdf" download>Download resume</a>
+            <button class="action-chip ghost" type="button" id="copy-email">Copy email</button>
+          </div>
+          <div class="status-pill">Open to AI/ML internships — 2026</div>
 
           <div class="stats">
             <div class="stat">
@@ -1293,6 +1398,8 @@
 
   </div>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script>
     const projectData = {
       sanket: {
@@ -1376,6 +1483,40 @@
     const githubYear = document.getElementById("github-year");
     const githubCalendar = document.getElementById("github-calendar");
     const githubRefresh = document.getElementById("github-refresh");
+    const CURRENT_YEAR = new Date().getFullYear();
+    const copyEmailButton = document.getElementById("copy-email");
+    const toast = document.getElementById("toast");
+    const EMAIL_ADDRESS = "nupreethm@gmail.com";
+
+    function showToast(message) {
+      if (!toast) {
+        return;
+      }
+      toast.textContent = message;
+      toast.classList.add("show");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    async function copyEmail() {
+      try {
+        await navigator.clipboard.writeText(EMAIL_ADDRESS);
+        showToast("Email copied to clipboard");
+      } catch (error) {
+        const temp = document.createElement("textarea");
+        temp.value = EMAIL_ADDRESS;
+        temp.setAttribute("readonly", "true");
+        temp.style.position = "absolute";
+        temp.style.left = "-9999px";
+        document.body.appendChild(temp);
+        temp.select();
+        const succeeded = document.execCommand("copy");
+        document.body.removeChild(temp);
+        showToast(succeeded ? "Email copied to clipboard" : "Copy failed");
+      }
+    }
 
     function enhanceGithubCalendar() {
       const tooltip = document.createElement("div");
@@ -1444,7 +1585,7 @@
     async function loadGithubContributions(force = false) {
       try {
         const cacheKey = force ? `&ts=${Date.now()}` : "";
-        const response = await fetch(`/api/github-contributions?year=2026${cacheKey}`);
+        const response = await fetch(`/api/github-contributions?year=${CURRENT_YEAR}${cacheKey}`);
         if (!response.ok) {
           throw new Error("Failed to load contributions.");
         }
@@ -1476,6 +1617,10 @@
 
     if (githubRefresh) {
       githubRefresh.addEventListener("click", () => loadGithubContributions(true));
+    }
+
+    if (copyEmailButton) {
+      copyEmailButton.addEventListener("click", copyEmail);
     }
 
     loadGithubContributions();
