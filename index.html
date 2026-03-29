@@ -78,6 +78,25 @@
       display: block;
     }
 
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 16px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(143, 247, 255, 0.2);
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 999;
+      border: 1px solid rgba(143, 247, 255, 0.5);
+    }
+
+    .skip-link:focus {
+      left: 16px;
+      outline: none;
+    }
+
     .site {
       width: min(calc(100% - 28px), var(--content));
       margin: 18px auto 72px;
@@ -1077,6 +1096,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#about">Skip to main content</a>
   <div class="site">
     <header class="topbar reveal">
       <div class="brand">
@@ -1487,6 +1507,9 @@
     const copyEmailButton = document.getElementById("copy-email");
     const toast = document.getElementById("toast");
     const EMAIL_ADDRESS = "nupreethm@gmail.com";
+    if (githubYear) {
+      githubYear.textContent = `public GitHub contributions in ${CURRENT_YEAR}`;
+    }
 
     function showToast(message) {
       if (!toast) {
